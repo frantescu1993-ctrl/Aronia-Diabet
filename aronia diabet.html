@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Aronia Natur — superaliment natural pentru controlul glicemiei și diabet. Produse 100% naturale din România.">
+<meta name="theme-color" content="#6b1a44">
+<title>Aronia Natur — Control Natural al Glicemiei | Diabet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a0e26;--plum:#3b1050;--berry:#6b1a44;--rose:#a63360;
+  --blush:#d4637a;--gold:#c9973c;--cream:#faf5ef;--white:#fff;
+  --text:#2a1a2e;--muted:#7a6580;
+  --glass:rgba(255,255,255,.78);--glass-dark:rgba(26,14,38,.9);
+  --ease:cubic-bezier(.16,1,.3,1);--bounce:cubic-bezier(.34,1.56,.64,1);
+  --sh:0 12px 48px rgba(26,14,38,.08),0 1px 0 rgba(255,255,255,.95) inset;
+  --shh:0 24px 64px rgba(107,26,68,.2);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+body{
+  font-family:'DM Sans',system-ui,sans-serif;
+  background:#faf5ef;color:var(--text);
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+  line-height:1.7;position:relative;min-height:100vh;
+}
+
+/* ══════════════════════════════════════════
+   ANIMATED BACKGROUND WITH PARTICLES
+══════════════════════════════════════════ */
+.bg-animated{
+  position:fixed;inset:0;z-index:-3;overflow:hidden;
+  background:
+    radial-gradient(ellipse 900px 700px at 85% 15%, rgba(107,26,68,.1), transparent),
+    radial-gradient(ellipse 700px 600px at 5% 85%, rgba(201,151,60,.08), transparent),
+    linear-gradient(165deg, #faf5ef 0%, #f5eef5 35%, #f0e8f2 65%, #faf5ef 100%);
+  animation:bgShift 30s ease-in-out infinite;
+}
+@keyframes bgShift{
+  0%,100%{filter:hue-rotate(0deg) brightness(1)}
+  50%{filter:hue-rotate(5deg) brightness(1.02)}
+}
+
+/* Floating organic shapes */
+.shapes{position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.12}
+.shape{
+  position:absolute;border-radius:50%;
+  filter:blur(60px);
+  animation:shapeFloat 25s ease-in-out infinite;
+}
+.shape:nth-child(1){
+  width:350px;height:350px;top:8%;left:3%;
+  background:radial-gradient(circle, #8b2d5c, transparent 65%);
+  animation-delay:0s;
+}
+.shape:nth-child(2){
+  width:280px;height:280px;top:55%;right:5%;
+  background:radial-gradient(circle, #c9973c, transparent 65%);
+  animation-delay:8s;
+}
+.shape:nth-child(3){
+  width:320px;height:320px;bottom:12%;left:12%;
+  background:radial-gradient(circle, #a63360, transparent 65%);
+  animation-delay:16s;
+}
+@keyframes shapeFloat{
+  0%,100%{transform:translate(0,0) scale(1);opacity:.1}
+  33%{transform:translate(40px,-40px) scale(1.15);opacity:.14}
+  66%{transform:translate(-30px,35px) scale(.9);opacity:.12}
+}
+
+/* Grain overlay */
+body::after{
+  content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;
+  opacity:.09;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.3' numOctaves='4'/%3E%3C/filter%3E%3Crect width='320' height='320' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+}
+
+/* Floating particles canvas */
+.particles{
+  position:fixed;inset:0;z-index:-1;
+  pointer-events:none;opacity:.25;
+}
+
+/* ══════════════════════════════════════════
+   GLASSMORPHIC NAVIGATION
+══════════════════════════════════════════ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:1rem 1.5rem;transition:all .45s var(--ease);
+}
+.nav.on{
+  background:var(--glass);
+  backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);
+  border-bottom:1px solid rgba(107,26,68,.12);
+  box-shadow:0 4px 36px rgba(26,14,38,.07);
+}
+.nav-inner{
+  max-width:1440px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;height:64px;
+}
+.logo{display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none}
+.logo-icon{
+  width:46px;height:46px;
+  background:linear-gradient(145deg,#8b2d5c,#3b1050);
+  border-radius:15px;display:flex;align-items:center;justify-content:center;
+  font-size:1.45rem;
+  box-shadow:0 7px 26px rgba(107,26,68,.42),inset 0 2px 0 rgba(255,255,255,.16);
+  transition:transform .4s var(--bounce);
+  animation:iconPulse 4s ease-in-out infinite;
+}
+@keyframes iconPulse{
+  0%,100%{box-shadow:0 7px 26px rgba(107,26,68,.42),inset 0 2px 0 rgba(255,255,255,.16)}
+  50%{box-shadow:0 10px 32px rgba(107,26,68,.52),inset 0 2px 0 rgba(255,255,255,.2)}
+}
+.logo:hover .logo-icon{transform:rotate(-12deg) scale(1.14)}
+.logo-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.7rem;font-weight:700;color:var(--ink);letter-spacing:-.5px;
+}
+.logo-text em{font-style:italic;color:var(--berry)}
+
+.nav-menu{display:none;align-items:center;gap:.5rem}
+.nav-menu a{
+  padding:.6rem 1.2rem;font-size:.92rem;font-weight:600;
+  color:var(--muted);border-radius:13px;
+  transition:all .28s var(--ease);text-decoration:none;
+  position:relative;
+}
+.nav-menu a::before{
+  content:'';position:absolute;inset:0;
+  background:rgba(107,26,68,.08);border-radius:13px;
+  opacity:0;transition:opacity .28s;
+}
+.nav-menu a:hover::before,.nav-menu a.active::before{opacity:1}
+.nav-menu a:hover,.nav-menu a.active{color:var(--berry)}
+.nav-cta{
+  background:var(--berry)!important;color:#fff!important;
+  padding:.65rem 1.6rem!important;
+  box-shadow:0 6px 22px rgba(107,26,68,.38)!important;
+}
+.nav-cta::before{background:#fff!important;opacity:.15!important}
+.nav-cta:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 32px rgba(107,26,68,.48)!important;
+}
+
+.nav-mobile{
+  position:fixed;top:0;right:-100%;
+  width:min(360px,92vw);height:100vh;
+  background:var(--glass);
+  backdrop-filter:blur(36px);-webkit-backdrop-filter:blur(36px);
+  box-shadow:-14px 0 52px rgba(26,14,38,.16);
+  padding:6rem 2.2rem 2rem;
+  transition:right .5s var(--ease);
+  z-index:999;overflow-y:auto;
+}
+.nav-mobile.open{right:0}
+.nav-mobile a{
+  display:block;padding:1.05rem 1.4rem;margin:.45rem 0;
+  font-size:1.02rem;font-weight:600;color:var(--text);
+  border-radius:15px;transition:all .32s var(--ease);
+  text-decoration:none;position:relative;
+}
+.nav-mobile a::before{
+  content:'';position:absolute;left:0;top:50%;
+  width:0;height:60%;transform:translateY(-50%);
+  background:var(--berry);border-radius:0 8px 8px 0;
+  transition:width .32s var(--ease);
+}
+.nav-mobile a:hover::before,.nav-mobile a.active::before{width:4px}
+.nav-mobile a:hover,.nav-mobile a.active{
+  background:rgba(107,26,68,.1);color:var(--berry);
+  transform:translateX(10px);
+}
+.nav-mobile .nav-cta{
+  background:var(--berry)!important;color:#fff!important;
+  margin-top:1.8rem!important;
+  box-shadow:0 6px 22px rgba(107,26,68,.38)!important;
+}
+.nav-mobile .nav-cta::before{display:none}
+
+.burger{
+  display:flex;flex-direction:column;gap:6px;
+  width:32px;height:28px;cursor:pointer;z-index:1001;
+  background:none;border:none;padding:0;
+}
+.burger span{
+  width:100%;height:3px;background:var(--ink);
+  border-radius:3px;transition:all .35s var(--ease);
+}
+.burger.open span:nth-child(1){transform:rotate(45deg) translateY(9px)}
+.burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.burger.open span:nth-child(3){transform:rotate(-45deg) translateY(-9px)}
+
+.menu-overlay{
+  position:fixed;inset:0;
+  background:rgba(26,14,38,.55);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  opacity:0;pointer-events:none;
+  transition:opacity .4s var(--ease);z-index:998;
+}
+.menu-overlay.open{opacity:1;pointer-events:all}
+
+/* ══════════════════════════════════════════
+   HERO SECTION — DIABETES FOCUSED
+══════════════════════════════════════════ */
+.hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:7rem 1.5rem 4rem;text-align:center;position:relative;overflow:hidden;
+}
+.hero-content{max-width:720px;position:relative;z-index:2}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(107,26,68,.09);
+  border:1px solid rgba(107,26,68,.2);
+  padding:.65rem 1.4rem;border-radius:50px;
+  font-size:.84rem;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;
+  color:var(--berry);margin-bottom:1.9rem;
+  animation:fadeUp 1s var(--ease) .2s both,badgeGlow 3s ease-in-out infinite;
+  box-shadow:0 5px 18px rgba(107,26,68,.1);
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes badgeGlow{
+  0%,100%{box-shadow:0 5px 18px rgba(107,26,68,.1)}
+  50%{box-shadow:0 8px 26px rgba(107,26,68,.18)}
+}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.9rem,9.5vw,5.6rem);
+  font-weight:700;color:var(--ink);
+  line-height:1.06;letter-spacing:-1.6px;
+  margin-bottom:1.5rem;
+  animation:fadeUp 1s var(--ease) .4s both;
+}
+.hero h1 .hi{
+  background:linear-gradient(135deg,#8b2d5c,#c44d84);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;font-style:italic;
+  animation:gradientShift 5s ease-in-out infinite;
+}
+@keyframes gradientShift{
+  0%,100%{filter:hue-rotate(0deg)}
+  50%{filter:hue-rotate(10deg)}
+}
+.hero-sub{
+  font-size:1.12rem;color:var(--muted);
+  line-height:1.88;max-width:580px;
+  margin:0 auto 2.5rem;font-weight:400;
+  animation:fadeUp 1s var(--ease) .6s both;
+}
+.hero-btns{
+  display:flex;gap:1.1rem;justify-content:center;
+  flex-wrap:wrap;margin-bottom:3.2rem;
+  animation:fadeUp 1s var(--ease) .8s both;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:1rem 2.2rem;border-radius:50px;
+  font-weight:700;font-size:.94rem;
+  border:none;cursor:pointer;text-decoration:none;
+  transition:all .38s var(--ease);
+  box-shadow:0 6px 22px rgba(0,0,0,.13);
+  position:relative;overflow:hidden;
+}
+.btn::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,transparent,rgba(255,255,255,.2),transparent);
+  transform:translateX(-100%);
+  transition:transform .6s;
+}
+.btn:hover::before{transform:translateX(100%)}
+.btn-p{background:var(--berry);color:#fff}
+.btn-p:hover{
+  background:var(--plum);
+  transform:translateY(-5px) scale(1.03);
+  box-shadow:0 14px 38px rgba(107,26,68,.45);
+}
+.btn-g{background:#fff;color:var(--berry);border:2px solid rgba(107,26,68,.28)}
+.btn-g:hover{
+  background:rgba(107,26,68,.07);
+  border-color:var(--berry);
+  transform:translateY(-4px);
+}
+
+/* Diabetes Info Cards */
+.hero-info{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:1rem;max-width:680px;margin:0 auto 3rem;
+  animation:fadeUp 1s var(--ease) 1s both;
+}
+.info-card{
+  background:var(--glass);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,.95);
+  border-radius:18px;padding:1.3rem 1.2rem;
+  box-shadow:var(--sh);
+  transition:all .4s var(--ease);
+  animation:cardFloat 6s ease-in-out infinite;
+}
+.info-card:nth-child(1){animation-delay:0s}
+.info-card:nth-child(2){animation-delay:2s}
+.info-card:nth-child(3){animation-delay:4s}
+@keyframes cardFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+.info-card:hover{
+  transform:translateY(-10px) scale(1.04);
+  box-shadow:var(--shh);
+}
+.info-icon{
+  font-size:2rem;margin-bottom:.6rem;
+  animation:iconBounce 2s ease-in-out infinite;
+}
+@keyframes iconBounce{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.1)}
+}
+.info-card h3{
+  font-size:.9rem;font-weight:700;
+  color:var(--berry);margin-bottom:.3rem;
+  text-transform:uppercase;letter-spacing:.5px;
+}
+.info-card p{
+  font-size:.84rem;color:var(--muted);
+  line-height:1.6;font-weight:400;
+}
+
+/* Hero Visual */
+.hero-visual{
+  position:relative;width:min(500px,96vw);
+  aspect-ratio:1;margin:0 auto;
+  animation:fadeUp 1s var(--ease) 1.2s both;
+}
+.orb{
+  width:100%;height:100%;border-radius:50%;
+  background:radial-gradient(circle at 40% 40%, rgba(166,51,96,.18), rgba(107,26,68,.1) 58%, transparent 82%);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  animation:orbBreath 10s ease-in-out infinite;
+}
+@keyframes orbBreath{
+  0%,100%{transform:scale(1);opacity:.9}
+  50%{transform:scale(1.08);opacity:1}
+}
+.orb::before,.orb::after{
+  content:'';position:absolute;border-radius:50%;
+}
+.orb::before{
+  inset:9%;border:2px solid rgba(107,26,68,.12);
+  animation:spinSlow 32s linear infinite;
+}
+.orb::after{
+  inset:26%;border:2px dashed rgba(201,151,60,.14);
+  animation:spinSlow 42s linear infinite reverse;
+}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+.berry{
+  font-size:clamp(6rem,24vw,10rem);
+  animation:berryDance 8s ease-in-out infinite;
+  filter:drop-shadow(0 28px 56px rgba(107,26,68,.32));
+  position:relative;z-index:1;
+}
+@keyframes berryDance{
+  0%,100%{transform:translateY(0) rotate(-4deg) scale(1)}
+  25%{transform:translateY(-15px) rotate(2deg) scale(1.05)}
+  50%{transform:translateY(-22px) rotate(-2deg) scale(1.08)}
+  75%{transform:translateY(-15px) rotate(3deg) scale(1.05)}
+}
+
+.badges{position:absolute;inset:0;pointer-events:none}
+.badge{
+  position:absolute;
+  background:var(--glass);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.95);
+  padding:.8rem 1.15rem;border-radius:13px;
+  font-size:.82rem;font-weight:600;
+  box-shadow:var(--sh);
+  animation:badgeDrift 6s ease-in-out infinite;
+}
+.badge:nth-child(1){top:10%;left:-4%;animation-delay:0s}
+.badge:nth-child(2){top:58%;right:-5%;animation-delay:2s}
+.badge:nth-child(3){bottom:16%;left:6%;animation-delay:4s}
+@keyframes badgeDrift{
+  0%,100%{transform:translate(0,0) rotate(0deg)}
+  33%{transform:translate(8px,-12px) rotate(2deg)}
+  66%{transform:translate(-6px,-8px) rotate(-2deg)}
+}
+
+/* ══════════════════════════════════════════
+   DIABETES SECTION — HERO FEATURE
+══════════════════════════════════════════ */
+.diabetes-hero{
+  background:linear-gradient(145deg,#8b2d5c,#5c1a3a);
+  color:#fff;position:relative;overflow:hidden;
+}
+.diabetes-hero::before{
+  content:'';position:absolute;
+  top:-40%;right:-20%;width:600px;height:600px;
+  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);
+  border-radius:50%;animation:pulse 14s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1) translate(0,0);opacity:.9}
+  50%{transform:scale(1.25) translate(-30px,30px);opacity:1}
+}
+.diabetes-content{
+  max-width:1440px;margin:0 auto;padding:6rem 1.5rem;
+  position:relative;z-index:1;
+}
+.diabetes-grid{
+  display:grid;grid-template-columns:1fr;gap:3rem;align-items:center;
+}
+.diabetes-text .eyebrow{color:var(--gold);justify-content:flex-start}
+.diabetes-text .eyebrow::before{background:var(--gold)}
+.diabetes-text .sec-title{color:#fff;text-align:left}
+.diabetes-text .sec-desc{color:rgba(255,255,255,.85);max-width:100%}
+.diabetes-text p{
+  color:rgba(255,255,255,.88);
+  line-height:1.92;margin:1.2rem 0;
+  font-size:1.02rem;font-weight:400;
+}
+.diabetes-text strong{color:#fff;font-weight:700}
+
+.stats-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:1.2rem;margin-top:2rem;
+}
+.stat-card{
+  background:rgba(255,255,255,.11);
+  border:1px solid rgba(255,255,255,.24);
+  border-radius:18px;padding:1.5rem 1.3rem;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  transition:all .4s var(--ease);
+  animation:statFloat 5s ease-in-out infinite;
+}
+.stat-card:nth-child(1){animation-delay:0s}
+.stat-card:nth-child(2){animation-delay:1.25s}
+.stat-card:nth-child(3){animation-delay:2.5s}
+.stat-card:nth-child(4){animation-delay:3.75s}
+@keyframes statFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+}
+.stat-card:hover{
+  background:rgba(255,255,255,.16);
+  transform:translateY(-8px);
+  box-shadow:0 12px 36px rgba(0,0,0,.2);
+}
+.stat-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.2rem;font-weight:700;
+  color:var(--gold);line-height:1;
+  margin-bottom:.5rem;
+  animation:numberPulse 3s ease-in-out infinite;
+}
+@keyframes numberPulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.05)}
+}
+.stat-label{
+  font-size:.86rem;color:rgba(255,255,255,.75);
+  line-height:1.6;font-weight:500;
+}
+
+/* ══════════════════════════════════════════
+   SECTIONS
+══════════════════════════════════════════ */
+.wrap{max-width:1440px;margin:0 auto;padding:5.5rem 1.5rem}
+.sec-head{text-align:center;margin-bottom:3.8rem}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:11px;
+  font-size:.8rem;font-weight:700;
+  letter-spacing:2.4px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1.1rem;
+}
+.eyebrow::before{content:'';width:30px;height:2.5px;background:var(--gold);border-radius:2px}
+.sec-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.4rem,7vw,4.2rem);
+  font-weight:700;color:var(--ink);
+  line-height:1.07;letter-spacing:-1.2px;
+}
+.sec-title em{color:var(--berry);font-style:italic}
+.sec-desc{
+  color:var(--muted);font-size:1.04rem;
+  line-height:1.88;max-width:600px;
+  margin:1rem auto 0;font-weight:400;
+}
+
+/* Benefits Grid */
+.ben-grid{
+  display:grid;grid-template-columns:1fr;gap:1.5rem;
+}
+.bcard{
+  background:var(--glass);
+  backdrop-filter:blur(26px);-webkit-backdrop-filter:blur(26px);
+  border:1px solid rgba(255,255,255,.95);
+  border-radius:22px;padding:2rem 1.8rem;
+  box-shadow:var(--sh);position:relative;overflow:hidden;
+  transition:all .45s var(--ease);
+}
+.bcard::after{
+  content:'';position:absolute;top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
+  transition:left .6s;
+}
+.bcard:hover::after{left:100%}
+.bcard:hover{
+  transform:translateY(-12px) scale(1.02);
+  box-shadow:var(--shh);
+}
+.bcard::before{
+  content:'';position:absolute;top:0;left:0;right:0;
+  height:4px;
+  background:linear-gradient(90deg,var(--berry),var(--blush));
+  opacity:0;transition:opacity .35s;
+}
+.bcard:hover::before{opacity:1}
+.bcard.feat{
+  background:linear-gradient(145deg,#8b2d5c,#5c1a3a);
+  color:#fff;
+}
+.bcard.feat h3,.bcard.feat p{color:#fff}
+.bcard.feat p{opacity:.94}
+.bicon{
+  width:56px;height:56px;
+  background:rgba(107,26,68,.1);
+  border-radius:16px;display:flex;
+  align-items:center;justify-content:center;
+  font-size:1.7rem;margin-bottom:1.3rem;
+  transition:transform .45s var(--bounce);
+  animation:iconWiggle 4s ease-in-out infinite;
+}
+@keyframes iconWiggle{
+  0%,100%{transform:rotate(0deg) scale(1)}
+  25%{transform:rotate(-5deg) scale(1.05)}
+  50%{transform:rotate(0deg) scale(1.1)}
+  75%{transform:rotate(5deg) scale(1.05)}
+}
+.bcard:hover .bicon{transform:scale(1.25) rotate(-12deg)}
+.bcard.feat .bicon{background:rgba(255,255,255,.18);font-size:2rem}
+.bcard h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.28rem;font-weight:700;
+  margin-bottom:.55rem;letter-spacing:-.35px;
+}
+.bcard p{font-size:.9rem;color:var(--muted);line-height:1.78;font-weight:400}
+
+/* Products Grid */
+.prod-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
+  gap:1.3rem;
+}
+.pcard{
+  background:var(--glass);
+  backdrop-filter:blur(26px);-webkit-backdrop-filter:blur(26px);
+  border:1px solid rgba(255,255,255,.95);
+  border-radius:22px;padding:1.8rem 1.3rem;
+  text-align:center;cursor:pointer;
+  transition:all .5s var(--ease);
+  box-shadow:var(--sh);position:relative;
+  animation:cardPop 1s var(--ease) both;
+}
+@keyframes cardPop{
+  from{opacity:0;transform:scale(.9) translateY(20px)}
+  to{opacity:1;transform:scale(1) translateY(0)}
+}
+.pcard:nth-child(1){animation-delay:.05s}
+.pcard:nth-child(2){animation-delay:.1s}
+.pcard:nth-child(3){animation-delay:.15s}
+.pcard:nth-child(4){animation-delay:.2s}
+.pcard:nth-child(5){animation-delay:.25s}
+.pcard:nth-child(6){animation-delay:.3s}
+.pcard:nth-child(7){animation-delay:.35s}
+.pcard:nth-child(8){animation-delay:.4s}
+.pcard::after{
+  content:'';position:absolute;inset:0;
+  border-radius:22px;
+  background:linear-gradient(135deg,rgba(107,26,68,.06),transparent);
+  opacity:0;transition:opacity .35s;pointer-events:none;
+}
+.pcard:hover::after{opacity:1}
+.pcard:hover{
+  transform:translateY(-14px) scale(1.05) rotate(2deg);
+  box-shadow:var(--shh);
+}
+.p-svg{
+  width:105px;height:105px;margin:0 auto 1.1rem;
+  filter:drop-shadow(0 9px 28px rgba(107,26,68,.2));
+  transition:transform .5s var(--bounce);
+}
+.pcard:hover .p-svg{transform:scale(1.18) rotate(-8deg)}
+.pcard h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.16rem;font-weight:700;
+  margin-bottom:.45rem;letter-spacing:-.22px;
+}
+.pcard p{
+  font-size:.8rem;color:var(--muted);
+  line-height:1.68;margin-bottom:.85rem;font-weight:400;
+}
+.ptag{
+  display:inline-block;
+  background:var(--berry);color:#fff;
+  font-size:.74rem;font-weight:700;
+  padding:.32rem .85rem;border-radius:50px;
+  box-shadow:0 4px 14px rgba(107,26,68,.28);
+}
+
+/* Nutrition Section */
+.nut-sec{
+  background:var(--glass-dark);
+  backdrop-filter:blur(36px);-webkit-backdrop-filter:blur(36px);
+  color:#fff;position:relative;overflow:hidden;
+}
+.nut-sec::before{
+  content:'';position:absolute;
+  top:-45%;right:-28%;width:550px;height:550px;
+  background:radial-gradient(circle,rgba(201,151,60,.14),transparent 70%);
+  border-radius:50%;animation:pulse 15s ease-in-out infinite;
+}
+.nut-sec .eyebrow{color:var(--gold)}
+.nut-sec .eyebrow::before{background:var(--gold)}
+.nut-sec .sec-title{color:#fff}
+.nut-sec .sec-desc{color:rgba(255,255,255,.7)}
+.nh-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:1.1rem;margin:2.8rem 0;position:relative;z-index:1;
+}
+.nhc{
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:18px;padding:1.2rem 1.4rem;
+  text-align:center;
+  transition:all .4s var(--ease);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  animation:cardPop .8s var(--ease) both;
+}
+.nhc:nth-child(1){animation-delay:.1s}
+.nhc:nth-child(2){animation-delay:.2s}
+.nhc:nth-child(3){animation-delay:.3s}
+.nhc:nth-child(4){animation-delay:.4s}
+.nhc:hover{
+  background:rgba(255,255,255,.16);
+  transform:translateY(-6px);
+  box-shadow:0 10px 32px rgba(0,0,0,.18);
+}
+.nhc-val{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.65rem;font-weight:700;
+  color:var(--gold);line-height:1;
+  animation:numberPulse 3.5s ease-in-out infinite;
+}
+.nhc-name{
+  font-size:.76rem;color:rgba(255,255,255,.6);
+  margin-top:.45rem;line-height:1.55;
+}
+.tbl-wrap{
+  overflow-x:auto;border-radius:22px;
+  border:1px solid rgba(255,255,255,.14);
+  margin-top:2.8rem;position:relative;z-index:1;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+}
+table{width:100%;border-collapse:collapse;min-width:340px}
+thead{background:rgba(201,151,60,.18)}
+th{
+  padding:1rem 1.3rem;text-align:left;
+  font-size:.75rem;font-weight:700;
+  letter-spacing:1.3px;text-transform:uppercase;
+  color:var(--gold);
+}
+td{
+  padding:1rem 1.3rem;
+  border-bottom:1px solid rgba(255,255,255,.09);
+  font-size:.88rem;color:rgba(255,255,255,.78);
+  transition:background .25s;
+}
+tr:last-child td{border-bottom:none}
+tbody tr{transition:all .25s}
+tbody tr:hover{background:rgba(255,255,255,.07)}
+tbody tr:hover td{color:#fff}
+.hl{color:var(--gold)!important;font-weight:700}
+.stars{color:var(--gold);letter-spacing:1.5px}
+
+/* Contact Section */
+.con-sec{
+  background:linear-gradient(145deg,#8b2d5c,#5c1a3a);
+  color:#fff;text-align:center;position:relative;overflow:hidden;
+}
+.con-sec::before{
+  content:'';position:absolute;
+  top:-55%;right:-28%;width:550px;height:550px;
+  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);
+  border-radius:50%;animation:pulse 16s ease-in-out infinite;
+}
+.con-inner{max-width:680px;margin:0 auto;position:relative;z-index:1}
+.con-inner .eyebrow{color:var(--gold);justify-content:center}
+.con-inner .eyebrow::before{background:var(--gold)}
+.con-inner .sec-title{color:#fff}
+.con-inner .sec-desc{color:rgba(255,255,255,.88);margin:1.3rem auto}
+.con-cards{
+  display:flex;flex-direction:column;gap:1.1rem;
+  margin:2.8rem 0;
+}
+.ccard{
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:16px;padding:1.1rem 1.5rem;
+  font-size:.92rem;font-weight:600;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  transition:all .4s var(--ease);
+  animation:cardPop .8s var(--ease) both;
+}
+.ccard:nth-child(1){animation-delay:.1s}
+.ccard:nth-child(2){animation-delay:.2s}
+.ccard:nth-child(3){animation-delay:.3s}
+.ccard:hover{
+  background:rgba(255,255,255,.2);
+  transform:translateY(-6px);
+  box-shadow:0 10px 32px rgba(0,0,0,.22);
+}
+.btn-w{
+  background:#fff;color:var(--berry);
+  box-shadow:0 12px 36px rgba(0,0,0,.2);
+  font-weight:700;
+}
+.btn-w:hover{
+  background:var(--cream);
+  transform:translateY(-6px) scale(1.03);
+  box-shadow:0 18px 52px rgba(0,0,0,.28);
+}
+
+footer{
+  background:var(--ink);color:rgba(255,255,255,.48);
+  text-align:center;padding:2.2rem 1rem;font-size:.84rem;
+}
+footer a{color:var(--blush);text-decoration:none;transition:color .25s}
+footer a:hover{color:var(--rose);text-decoration:underline}
+
+/* Scroll Button */
+#stb{
+  position:fixed;bottom:2.2rem;right:2.2rem;
+  width:52px;height:52px;border-radius:50%;
+  background:linear-gradient(135deg,var(--berry),var(--plum));
+  color:#fff;border:none;font-size:1.35rem;cursor:pointer;
+  box-shadow:0 10px 32px rgba(107,26,68,.48);
+  opacity:0;pointer-events:none;
+  transform:translateY(16px) scale(.85);
+  transition:all .4s var(--ease);z-index:900;
+  display:flex;align-items:center;justify-content:center;
+  animation:buttonPulse 3s ease-in-out infinite;
+}
+@keyframes buttonPulse{
+  0%,100%{box-shadow:0 10px 32px rgba(107,26,68,.48)}
+  50%{box-shadow:0 14px 42px rgba(107,26,68,.58)}
+}
+#stb.on{opacity:1;pointer-events:all;transform:translateY(0) scale(1)}
+#stb:hover{
+  transform:translateY(-6px) scale(1.12);
+  box-shadow:0 18px 48px rgba(107,26,68,.62);
+}
+
+/* Reveal Animation */
+.rv{
+  opacity:0;transform:translateY(36px);
+  transition:opacity .9s var(--ease),transform .9s var(--ease);
+}
+.rv.in{opacity:1;transform:translateY(0)}
+.rv:nth-child(1){transition-delay:.08s}
+.rv:nth-child(2){transition-delay:.16s}
+.rv:nth-child(3){transition-delay:.24s}
+.rv:nth-child(4){transition-delay:.32s}
+.rv:nth-child(5){transition-delay:.4s}
+.rv:nth-child(6){transition-delay:.48s}
+
+/* Responsive */
+@media(min-width:640px){
+  .prod-grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+  .nh-grid{grid-template-columns:repeat(4,1fr)}
+  .con-cards{flex-direction:row;justify-content:center}
+  .hero-info{grid-template-columns:repeat(3,1fr)}
+  .stats-grid{grid-template-columns:repeat(4,1fr)}
+}
+@media(min-width:768px){
+  .wrap{padding:6.5rem 2rem}
+  .nav{padding:1rem 2.5rem}
+  .burger{display:none}
+  .nav-menu{display:flex}
+  .nav-mobile{display:none}
+  .ben-grid{grid-template-columns:repeat(2,1fr);gap:1.8rem}
+  .bcard.feat{grid-column:span 2}
+  .prod-grid{grid-template-columns:repeat(4,1fr)}
+  .diabetes-grid{grid-template-columns:1fr 1fr;gap:5rem}
+  .diabetes-text .sec-title{text-align:left}
+}
+@media(min-width:1024px){
+  .ben-grid{grid-template-columns:repeat(3,1fr)}
+  .bcard.feat{grid-column:span 3}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    transition-duration:.01ms!important;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-animated"></div>
+<div class="shapes">
+  <div class="shape"></div>
+  <div class="shape"></div>
+  <div class="shape"></div>
+</div>
+<canvas class="particles" id="particles"></canvas>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">🫐</div>
+      <span class="logo-text">Aronia <em>Natur</em></span>
+    </a>
+    <div class="nav-menu">
+      <a href="#despre">Despre</a>
+      <a href="#diabet">Diabet</a>
+      <a href="#beneficii">Beneficii</a>
+      <a href="#produse">Produse</a>
+      <a href="#nutritie">Nutriție</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Meniu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="navMobile">
+  <a href="#despre">Despre</a>
+  <a href="#diabet">Diabet</a>
+  <a href="#beneficii">Beneficii</a>
+  <a href="#produse">Produse</a>
+  <a href="#nutritie">Nutriție</a>
+  <a href="#contact" class="nav-cta">Contact</a>
+</div>
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <div class="hero-badge">🩺 Control Natural al Glicemiei</div>
+    <h1>Controlează diabetul<br>în mod <span class="hi">natural</span></h1>
+    <p class="hero-sub">Aronia — soluția naturală pentru reglarea glicemiei. Cu cel mai ridicat conținut de antioxidanți din lume, aronia ajută la stabilizarea zahărului din sânge fără medicamente.</p>
+    <div class="hero-btns">
+      <a href="#diabet" class="btn btn-p">🩸 Pentru Diabet</a>
+      <a href="#produse" class="btn btn-g">🛒 Vezi Produsele</a>
+    </div>
+    <div class="hero-info">
+      <div class="info-card">
+        <div class="info-icon">📉</div>
+        <h3>Reduce Glicemia</h3>
+        <p>Reglează zahărul în sânge în mod natural</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">🛡️</div>
+        <h3>100% Natural</h3>
+        <p>Fără efecte secundare sau chimicale</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">⚡</div>
+        <h3>Acțiune Rapidă</h3>
+        <p>Efecte vizibile în 2-4 săptămâni</p>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="orb">
+        <div class="berry">🫐</div>
+        <div class="badges">
+          <div class="badge">📉 Glicemie normală</div>
+          <div class="badge">❤️ Fără chimicale</div>
+          <div class="badge">✨ Rezultate rapide</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="diabetes-hero" id="diabet">
+  <div class="diabetes-content">
+    <div class="diabetes-grid">
+      <div class="diabetes-text rv">
+        <div class="eyebrow">🩺 Diabet & Glicemie</div>
+        <h2 class="sec-title">Aronia — <em>Aliatul</em><br>Natural împotriva<br>Diabetului</h2>
+        <p class="sec-desc">Studiile clinice confirmă eficiența aroniei în controlul diabetului zaharat</p>
+        <p>Aronia conține <strong>antocianine puternice</strong> care blochează absorbția rapidă a zahărului în sânge, prevenind vârfurile glicemice după mese. Polifenolii din aronia îmbunătățesc sensibilitatea la insulină cu până la <strong>37%</strong>, ajutând organismul să proceseze glucoza mai eficient.</p>
+        <p>Pentru persoanele cu <strong>diabet tip 2</strong>, consumul regulat de aronia (30-50ml suc/zi sau 2 capsule) poate reduce nivelul glicemiei cu <strong>18-25%</strong> în doar 8 săptămâni, fără interacțiuni cu medicamentele pentru diabet.</p>
+      </div>
+      <div class="stats-grid rv">
+        <div class="stat-card">
+          <div class="stat-num">−25%</div>
+          <div class="stat-label">Reducerea glicemiei în 8 săptămâni</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">+37%</div>
+          <div class="stat-label">Îmbunătățirea sensibilității la insulină</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">1480mg</div>
+          <div class="stat-label">Antocianine per 100g — record mondial</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">0</div>
+          <div class="stat-label">Efecte secundare raportate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="beneficii">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">💪 Sănătate</div>
+      <h2 class="sec-title">Beneficiile<br><em>Aroniei</em></h2>
+      <p class="sec-desc">De la control glicemic la sănătate cardiovasculară completă</p>
+    </div>
+    <div class="ben-grid">
+      <div class="bcard feat rv">
+        <div class="bicon">🩸</div>
+        <div><h3>Control Glicemic Superior</h3><p>Antocianinele din aronia reduc glicemia post-prandială cu 18-25%, îmbunătățesc sensibilitatea la insulină și previn complicațiile diabetului zaharat tip 2.</p></div>
+      </div>
+      <div class="bcard rv"><div class="bicon">🛡️</div><h3>Imunitate Puternică</h3><p>Vitamina C și zinc fortifică sistemul imunitar.</p></div>
+      <div class="bcard rv"><div class="bicon">❤️</div><h3>Inimă Sănătoasă</h3><p>Reduce tensiunea și colesterolul LDL.</p></div>
+      <div class="bcard rv"><div class="bicon">🧠</div><h3>Claritate Mentală</h3><p>Protejează neuronii, îmbunătățește memoria.</p></div>
+      <div class="bcard rv"><div class="bicon">✨</div><h3>Piele Tânără</h3><p>Antioxidanți puternici contra îmbătrânirii.</p></div>
+      <div class="bcard rv"><div class="bicon">👁️</div><h3>Vedere Clară</h3><p>Protejează retina de degenerescență.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="produse">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">🛍️ Gama Noastră</div>
+      <h2 class="sec-title">Produse<br><em>Aronia</em></h2>
+      <p class="sec-desc">100% naturale, special pentru diabet și sănătate</p>
+    </div>
+    <div class="prod-grid">
+      <div class="pcard">
+        <svg class="p-svg" viewBox="0 0 110 130" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#9b2d5c"/><stop offset="100%" stop-color="#4a0f2a"/></linearGradient></defs>
+          <path d="M38 48Q30 56 28 72L26 108Q26 120 40 120L70 120Q84 120 84 108L82 72Q80 56 72 48Z" fill="url(#g1)"/>
+          <rect x="41" y="26" width="28" height="24" rx="6" fill="#7a1f48"/>
+          <rect x="38" y="14" width="34" height="15" rx="6" fill="#2d6a1f"/>
+          <text x="55" y="75" font-size="7" fill="white" text-anchor="middle" font-weight="bold">ARONIA</text>
+        </svg>
+        <h3>Suc de Aronia</h3>
+        <p>Ideal pentru diabet</p>
+        <span class="ptag">500 ml</span>
+      </div>
+      <div class="pcard">
+        <svg class="p-svg" viewBox="0 0 110 130" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 62Q16 68 16 84L16 108Q16 122 32 122L78 122Q94 122 94 108L94 84Q94 68 92 62Z" fill="#8b2d5a"/>
+          <ellipse cx="55" cy="35" rx="26" ry="8" fill="#d4aa60"/>
+          <text x="55" y="80" font-size="7" fill="white" text-anchor="middle" font-weight="bold">SIROP</text>
+        </svg>
+        <h3>Sirop Natural</h3>
+        <p>Îndulcitor sănătos</p>
+        <span class="ptag">350 ml</span>
+      </div>
+      <div class="pcard">
+        <svg class="p-svg" viewBox="0 0 110 130" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 60Q12 66 12 82L12 106Q12 122 30 122L80 122Q98 122 98 106L98 82Q98 66 96 60Z" fill="#7a2250"/>
+          <ellipse cx="55" cy="35" rx="28" ry="8" fill="#e8b8cc"/>
+          <text x="55" y="78" font-size="6" fill="white" text-anchor="middle" font-weight="bold">DULCEAȚĂ</text>
+        </svg>
+        <h3>Dulceață</h3>
+        <p>Fără zahăr adăugat</p>
+        <span class="ptag">300 g</span>
+      </div>
+      <div class="pcard">
+        <svg class="p-svg" viewBox="0 0 110 130" xmlns="http://www.w3.org/2000/svg">
+          <path d="M25 34Q22 40 22 52L20 104Q20 118 36 118L74 118Q90 118 90 104L88 52Q88 40 85 34Z" fill="#9b3068"/>
+          <text x="55" y="65" font-size="7" fill="white" text-anchor="middle" font-weight="bold">PUDRĂ</text>
+        </svg>
+        <h3>Pudră</h3>
+        <p>Concentrat natural</p>
+        <span class="ptag">200 g</span>
+      </div>
+      <div class="pcard">
+        <svg class="p-svg" viewBox="0 0 110 140" xmlns="http://www.w3.org/2000/svg">
+          <path d="M40 62Q32 70 30 86L28 120Q28 132 44 132L66 132Q82 132 82 120L80 86Q78 70 70 62Z" fill="#1e0a14"/>
+          <text x="55" y="100" font-size="5" fill="white" text-anchor="middle" font-weight="bold">VIN</text>
+        </svg>
+        <h3>Vin Aronia</h3>
+        <p>Fermentat natural</p>
+        <span class="ptag">750 ml</span>
+      </div>
+      <div class="pcard">
+        <svg class="p-svg" viewBox="0 0 110 130" xmlns="http://www.w3.org/2000/svg">
+          <rect x="28" y="50" width="54" height="68" rx="12" fill="#e8ecf8"/>
+          <circle cx="55" cy="80" r="9" fill="#6b1a44"/>
+          <text x="55" y="105" font-size="5" fill="#2a1a3a" text-anchor="middle" font-weight="bold">CAPSULE</text>
+        </svg>
+        <h3>Capsule</h3>
+        <p>Extract 500mg</p>
+        <span class="ptag">60 caps</span>
+      </div>
+      <div class="pcard">
+        <svg class="p-svg" viewBox="0 0 110 130" xmlns="http://www.w3.org/2000/svg">
+          <rect x="14" y="28" width="82" height="88" rx="7" fill="#5c1234"/>
+          <rect x="18" y="38" width="74" height="73" rx="5" fill="#fdf6f0"/>
+          <text x="55" y="80" font-size="6.5" fill="#3b1050" text-anchor="middle" font-weight="bold">CEAI</text>
+        </svg>
+        <h3>Ceai</h3>
+        <p>Fructe uscate</p>
+        <span class="ptag">150 g</span>
+      </div>
+      <div class="pcard">
+        <svg class="p-svg" viewBox="0 0 110 130" xmlns="http://www.w3.org/2000/svg">
+          <path d="M38 54Q31 61 31 74L31 108Q31 122 44 122L66 122Q79 122 79 108L79 74Q79 61 72 54Z" fill="#e8d8b8"/>
+          <text x="55" y="90" font-size="5.5" fill="#3b2010" text-anchor="middle" font-weight="bold">ULEI</text>
+        </svg>
+        <h3>Ulei Semințe</h3>
+        <p>Presat la rece</p>
+        <span class="ptag">100 ml</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="nut-sec" id="nutritie">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">📊 Clinice</div>
+      <h2 class="sec-title">Profil<br><em>Nutrițional</em></h2>
+      <p class="sec-desc">Valori per 100g fructe aronia</p>
+    </div>
+    <div class="nh-grid">
+      <div class="nhc"><div class="nhc-val">1480 mg</div><div class="nhc-name">Antocianine</div></div>
+      <div class="nhc"><div class="nhc-val">2560 mg</div><div class="nhc-name">Polifenoli</div></div>
+      <div class="nhc"><div class="nhc-val">5.3 g</div><div class="nhc-name">Fibre</div></div>
+      <div class="nhc"><div class="nhc-val">47 kcal</div><div class="nhc-name">Calorii</div></div>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Nutrient</th><th>Valoare</th><th>% DZR</th></tr></thead>
+        <tbody>
+          <tr><td>Carbohidrați</td><td>9.6 g</td><td>3%</td></tr>
+          <tr><td>Fibre</td><td class="hl">5.3 g</td><td class="hl">21%</td></tr>
+          <tr><td>Vitamina C</td><td class="hl">21 mg</td><td class="hl">35%</td></tr>
+          <tr><td>Vitamina K</td><td class="hl">29.3 µg</td><td class="hl">37%</td></tr>
+          <tr><td>Mangan</td><td class="hl">0.6 mg</td><td class="hl">30%</td></tr>
+          <tr><td>Antocianine</td><td class="hl">1480 mg</td><td class="stars">★★★★★</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="con-sec" id="contact">
+  <div class="wrap">
+    <div class="con-inner">
+      <div class="eyebrow">📬 Contact</div>
+      <h2 class="sec-title">Controlează-ți<br>diabetul <em>natural</em></h2>
+      <p class="sec-desc">Contactează-ne pentru comenzi și consultanță gratuită</p>
+      <div class="con-cards">
+        <div class="ccard">📧 frantescu1993@gmail.com</div>
+        <div class="ccard">📞 +40 735 477 765</div>
+        <div class="ccard">📍 Fardea, Timiș, România</div>
+      </div>
+      <a href="mailto:frantescu1993@gmail.com" class="btn btn-w">✉️ Comandă Acum</a>
+    </div>
+  </div>
+</section>
+
+<footer><p>© 2026 <a href="#">Aronia Natur</a> — Soluție naturală pentru diabet</p></footer>
+<button id="stb" aria-label="Sus">↑</button>
+
+<script>
+'use strict';
+const burger=document.getElementById('burger'),
+      navMobile=document.getElementById('navMobile'),
+      menuOverlay=document.getElementById('menuOverlay');
+
+function toggleMenu(){
+  const o=burger.classList.toggle('open');
+  navMobile.classList.toggle('open',o);
+  menuOverlay.classList.toggle('open',o);
+  document.body.style.overflow=o?'hidden':'';
+}
+burger.addEventListener('click',toggleMenu);
+menuOverlay.addEventListener('click',toggleMenu);
+[...navMobile.querySelectorAll('a'),...document.querySelectorAll('.nav-menu a')].forEach(a=>a.addEventListener('click',()=>{
+  burger.classList.remove('open');navMobile.classList.remove('open');
+  menuOverlay.classList.remove('open');document.body.style.overflow='';
+}));
+
+const nav=document.getElementById('nav'),stb=document.getElementById('stb');
+let tick=false;
+function scroll(){
+  if(tick)return;
+  tick=true;
+  requestAnimationFrame(()=>{
+    const y=scrollY;
+    nav.classList.toggle('on',y>50);
+    stb.classList.toggle('on',y>500);
+    tick=false;
+  });
+}
+addEventListener('scroll',scroll,{passive:true});
+stb.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+
+const obs=new IntersectionObserver(e=>{
+  e.forEach(i=>{if(i.isIntersecting){i.target.classList.add('in');obs.unobserve(i.target)}});
+},{threshold:.06,rootMargin:'0px 0px -70px 0px'});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+// Floating particles canvas
+const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');
+let W,H,particles=[];
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
+function createParticle(){
+  return{x:Math.random()*W,y:Math.random()*H,r:1+Math.random()*2,
+    vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,
+    a:.02+Math.random()*.06,life:0,max:300+Math.random()*500};
+}
+resize();
+for(let i=0;i<50;i++)particles.push(createParticle());
+function animate(){
+  ctx.clearRect(0,0,W,H);
+  particles.forEach((p,i)=>{
+    p.x+=p.vx;p.y+=p.vy;p.life++;
+    if(p.life>p.max||p.x<0||p.x>W||p.y<0||p.y>H)particles[i]=createParticle();
+    ctx.globalAlpha=p.a*Math.sin(Math.PI*p.life/p.max);
+    ctx.fillStyle='#8b2d5c';
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,6.28);ctx.fill();
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+addEventListener('resize',resize,{passive:true});
+</script>
+</body>
+</html>
