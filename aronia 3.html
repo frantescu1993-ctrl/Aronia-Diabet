@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,viewport-fit=cover">
+<meta name="description" content="Aronia Natur — control natural al glicemiei și diabet. Produse 100% naturale din România.">
+<meta name="theme-color" content="#6b1a44">
+<title>Aronia Natur — Control Natural al Glicemiei</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,700;1,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --berry:#6b1a44;--plum:#3b1050;--rose:#a63360;--gold:#c9973c;
+  --cream:#faf5ef;--white:#fff;--text:#2a1a2e;--muted:#7a6580;
+  --glass:rgba(255,255,255,.85);--glass-dark:rgba(26,14,38,.92);
+  --ease:cubic-bezier(.16,1,.3,1);--bounce:cubic-bezier(.34,1.56,.64,1);
+  --sh:0 8px 32px rgba(26,14,38,.06),0 1px 0 rgba(255,255,255,1) inset;
+  --shh:0 16px 48px rgba(107,26,68,.15);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+body{
+  font-family:'DM Sans',system-ui,-apple-system,sans-serif;
+  background:#faf5ef;color:var(--text);
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+  line-height:1.6;position:relative;
+}
+
+/* Background */
+.bg{
+  position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(circle 600px at 90% 10%, rgba(107,26,68,.08), transparent),
+    radial-gradient(circle 500px at 10% 90%, rgba(201,151,60,.06), transparent),
+    linear-gradient(170deg, #faf5ef 0%, #f5eef5 50%, #faf5ef 100%);
+  animation:bgShift 25s ease-in-out infinite;
+}
+@keyframes bgShift{0%,100%{opacity:1}50%{opacity:.95}}
+.shapes{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.08}
+.shape{
+  position:absolute;border-radius:50%;filter:blur(50px);
+  animation:shapeFloat 20s ease-in-out infinite;
+}
+.shape:nth-child(1){width:250px;height:250px;top:10%;left:5%;background:#8b2d5c;animation-delay:0s}
+.shape:nth-child(2){width:200px;height:200px;top:60%;right:8%;background:#c9973c;animation-delay:8s}
+.shape:nth-child(3){width:180px;height:180px;bottom:20%;left:15%;background:#a63360;animation-delay:16s}
+@keyframes shapeFloat{
+  0%,100%{transform:translate(0,0) scale(1)}
+  50%{transform:translate(30px,-30px) scale(1.1)}
+}
+
+/* Navigation */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:.8rem 1.2rem;transition:all .4s var(--ease);
+}
+.nav.on{
+  background:var(--glass);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(107,26,68,.1);
+  box-shadow:0 2px 24px rgba(26,14,38,.05);
+}
+.nav-inner{
+  max-width:1280px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  height:52px;
+}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none}
+.logo-icon{
+  width:38px;height:38px;flex-shrink:0;
+  background:linear-gradient(135deg,#8b2d5c,#3b1050);
+  border-radius:11px;display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;
+  box-shadow:0 4px 16px rgba(107,26,68,.35);
+  animation:iconPulse 3s ease-in-out infinite;
+}
+@keyframes iconPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.logo-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.4rem;font-weight:700;color:var(--berry);
+  letter-spacing:-.3px;
+}
+.logo-text em{font-style:italic}
+
+.burger{
+  width:28px;height:22px;display:flex;flex-direction:column;
+  justify-content:space-between;cursor:pointer;
+  background:none;border:none;padding:0;z-index:1001;
+}
+.burger span{
+  width:100%;height:2.5px;background:var(--berry);
+  border-radius:2px;transition:all .3s var(--ease);
+}
+.burger.open span:nth-child(1){transform:rotate(45deg) translateY(9.5px)}
+.burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.burger.open span:nth-child(3){transform:rotate(-45deg) translateY(-9.5px)}
+
+.nav-mobile{
+  position:fixed;top:0;right:-100%;
+  width:min(280px,80vw);height:100vh;
+  background:var(--glass);
+  backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);
+  box-shadow:-10px 0 40px rgba(26,14,38,.12);
+  padding:5rem 1.5rem 2rem;
+  transition:right .4s var(--ease);
+  z-index:999;overflow-y:auto;
+}
+.nav-mobile.open{right:0}
+.nav-mobile a{
+  display:block;padding:.85rem 1rem;margin:.3rem 0;
+  font-size:.95rem;font-weight:600;color:var(--text);
+  border-radius:12px;transition:all .3s var(--ease);
+  text-decoration:none;
+}
+.nav-mobile a:hover,.nav-mobile a.active{
+  background:rgba(107,26,68,.08);color:var(--berry);
+  transform:translateX(6px);
+}
+.nav-mobile .nav-cta{
+  background:var(--berry)!important;color:#fff!important;
+  margin-top:1.2rem!important;
+  box-shadow:0 4px 16px rgba(107,26,68,.3)!important;
+}
+
+.overlay{
+  position:fixed;inset:0;
+  background:rgba(26,14,38,.4);
+  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+  opacity:0;pointer-events:none;
+  transition:opacity .3s var(--ease);z-index:998;
+}
+.overlay.open{opacity:1;pointer-events:all}
+
+/* Hero */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:6rem 1.2rem 3rem;text-align:center;
+}
+.hero-content{max-width:600px;margin:0 auto}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(107,26,68,.08);
+  border:1px solid rgba(107,26,68,.15);
+  padding:.5rem 1.1rem;border-radius:50px;
+  font-size:.75rem;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--berry);margin-bottom:1.3rem;
+  animation:fadeUp .8s var(--ease) .2s both;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,10vw,3.5rem);
+  font-weight:700;color:var(--berry);
+  line-height:1.1;letter-spacing:-1px;
+  margin-bottom:1rem;
+  animation:fadeUp .8s var(--ease) .4s both;
+}
+.hero h1 .hi{
+  background:linear-gradient(135deg,#8b2d5c,#c44d84);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;font-style:italic;
+}
+.hero-sub{
+  font-size:1rem;color:var(--muted);
+  line-height:1.7;margin-bottom:1.8rem;
+  animation:fadeUp .8s var(--ease) .6s both;
+}
+.hero-btns{
+  display:flex;gap:.9rem;justify-content:center;
+  flex-wrap:wrap;margin-bottom:2rem;
+  animation:fadeUp .8s var(--ease) .8s both;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:.85rem 1.6rem;border-radius:50px;
+  font-weight:700;font-size:.88rem;
+  border:none;cursor:pointer;text-decoration:none;
+  transition:all .3s var(--ease);
+  box-shadow:0 4px 16px rgba(0,0,0,.1);
+}
+.btn-p{background:var(--berry);color:#fff}
+.btn-p:hover{
+  background:var(--plum);
+  transform:translateY(-3px);
+  box-shadow:0 8px 24px rgba(107,26,68,.35);
+}
+.btn-g{background:#fff;color:var(--berry);border:2px solid rgba(107,26,68,.2)}
+.btn-g:hover{
+  background:rgba(107,26,68,.05);
+  border-color:var(--berry);
+  transform:translateY(-2px);
+}
+
+.hero-cards{
+  display:grid;grid-template-columns:1fr;gap:.9rem;
+  max-width:500px;margin:0 auto 2rem;
+  animation:fadeUp .8s var(--ease) 1s both;
+}
+.hcard{
+  background:var(--glass);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,.95);
+  border-radius:14px;padding:1rem;
+  box-shadow:var(--sh);
+  transition:all .3s var(--ease);
+}
+.hcard:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shh);
+}
+.hcard-icon{font-size:1.8rem;margin-bottom:.5rem}
+.hcard h3{
+  font-size:.85rem;font-weight:700;
+  color:var(--berry);margin-bottom:.3rem;
+  text-transform:uppercase;letter-spacing:.3px;
+}
+.hcard p{font-size:.8rem;color:var(--muted);line-height:1.5}
+
+.hero-visual{
+  width:min(320px,85vw);aspect-ratio:1;
+  margin:0 auto;position:relative;
+  animation:fadeUp .8s var(--ease) 1.2s both;
+}
+.orb{
+  width:100%;height:100%;border-radius:50%;
+  background:radial-gradient(circle at 40% 40%, rgba(166,51,96,.15), rgba(107,26,68,.08) 60%, transparent);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  animation:orbPulse 8s ease-in-out infinite;
+}
+@keyframes orbPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.orb::before{
+  content:'';position:absolute;inset:12%;
+  border-radius:50%;border:1.5px solid rgba(107,26,68,.1);
+  animation:spin 25s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.berry{
+  font-size:clamp(4rem,18vw,6rem);
+  animation:float 6s ease-in-out infinite;
+  filter:drop-shadow(0 16px 32px rgba(107,26,68,.25));
+}
+@keyframes float{
+  0%,100%{transform:translateY(0) rotate(-2deg)}
+  50%{transform:translateY(-12px) rotate(2deg)}
+}
+
+/* Diabetes Hero */
+.diabetes{
+  background:linear-gradient(135deg,#8b2d5c,#5c1a3a);
+  color:#fff;position:relative;overflow:hidden;
+}
+.diabetes::before{
+  content:'';position:absolute;
+  top:-30%;right:-15%;width:400px;height:400px;
+  background:radial-gradient(circle,rgba(255,255,255,.1),transparent 70%);
+  border-radius:50%;animation:pulse 12s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+.diabetes-wrap{
+  max-width:1280px;margin:0 auto;
+  padding:4rem 1.2rem;position:relative;z-index:1;
+}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.7rem;font-weight:700;
+  letter-spacing:1.8px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:.8rem;
+}
+.eyebrow::before{content:'';width:24px;height:2px;background:var(--gold);border-radius:1px}
+.sec-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.8rem,7vw,3rem);
+  font-weight:700;line-height:1.1;letter-spacing:-.8px;
+}
+.sec-title em{font-style:italic}
+.sec-desc{
+  font-size:.95rem;line-height:1.7;
+  margin:.8rem 0 1.2rem;opacity:.9;
+}
+.diabetes p{
+  line-height:1.75;margin:.9rem 0;
+  font-size:.95rem;opacity:.92;
+}
+.diabetes strong{font-weight:700;color:#fff}
+
+.stats{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:.9rem;margin-top:2rem;
+}
+.stat{
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:14px;padding:1.1rem .9rem;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  transition:all .3s var(--ease);
+  text-align:center;
+}
+.stat:hover{
+  background:rgba(255,255,255,.15);
+  transform:translateY(-4px);
+}
+.stat-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.8rem;font-weight:700;
+  color:var(--gold);line-height:1;
+  margin-bottom:.4rem;
+}
+.stat-label{
+  font-size:.75rem;color:rgba(255,255,255,.7);
+  line-height:1.5;
+}
+
+/* Sections */
+.wrap{max-width:1280px;margin:0 auto;padding:4rem 1.2rem}
+.sec-head{text-align:center;margin-bottom:2.5rem}
+.sec-head .eyebrow{justify-content:center}
+
+/* Benefits */
+.ben-grid{display:grid;grid-template-columns:1fr;gap:1.2rem}
+.bcard{
+  background:var(--glass);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,.95);
+  border-radius:16px;padding:1.5rem 1.3rem;
+  box-shadow:var(--sh);
+  transition:all .35s var(--ease);
+}
+.bcard:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shh);
+}
+.bcard.feat{
+  background:linear-gradient(135deg,#8b2d5c,#5c1a3a);
+  color:#fff;
+}
+.bcard.feat h3,.bcard.feat p{color:#fff}
+.bicon{
+  width:48px;height:48px;
+  background:rgba(107,26,68,.08);
+  border-radius:12px;display:flex;
+  align-items:center;justify-content:center;
+  font-size:1.5rem;margin-bottom:1rem;
+  transition:transform .3s var(--bounce);
+}
+.bcard:hover .bicon{transform:scale(1.15) rotate(-8deg)}
+.bcard.feat .bicon{background:rgba(255,255,255,.15)}
+.bcard h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;font-weight:700;
+  margin-bottom:.4rem;letter-spacing:-.2px;
+}
+.bcard p{font-size:.85rem;color:var(--muted);line-height:1.65}
+
+/* Products */
+.prod-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1rem;
+}
+.pcard{
+  background:var(--glass);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,.95);
+  border-radius:16px;padding:1.3rem 1rem;
+  text-align:center;cursor:pointer;
+  transition:all .35s var(--ease);
+  box-shadow:var(--sh);
+}
+.pcard:hover{
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:var(--shh);
+}
+.p-svg{
+  width:85px;height:85px;margin:0 auto .8rem;
+  filter:drop-shadow(0 6px 18px rgba(107,26,68,.15));
+  transition:transform .35s var(--bounce);
+}
+.pcard:hover .p-svg{transform:scale(1.12) rotate(-5deg)}
+.pcard h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem;font-weight:700;
+  margin-bottom:.3rem;letter-spacing:-.15px;
+}
+.pcard p{
+  font-size:.75rem;color:var(--muted);
+  line-height:1.5;margin-bottom:.7rem;
+}
+.ptag{
+  display:inline-block;
+  background:var(--berry);color:#fff;
+  font-size:.68rem;font-weight:700;
+  padding:.25rem .7rem;border-radius:50px;
+  box-shadow:0 3px 10px rgba(107,26,68,.25);
+}
+
+/* Nutrition */
+.nut-sec{
+  background:var(--glass-dark);
+  backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);
+  color:#fff;
+}
+.nut-sec .eyebrow{color:var(--gold)}
+.nut-sec .eyebrow::before{background:var(--gold)}
+.nut-sec .sec-title{color:#fff}
+.nut-sec .sec-desc{color:rgba(255,255,255,.7)}
+.nh-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:.8rem;margin:2rem 0;
+}
+.nhc{
+  background:rgba(255,255,255,.09);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:14px;padding:1rem .8rem;
+  text-align:center;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:all .3s var(--ease);
+}
+.nhc:hover{
+  background:rgba(255,255,255,.14);
+  transform:translateY(-3px);
+}
+.nhc-val{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.4rem;font-weight:700;
+  color:var(--gold);line-height:1;
+}
+.nhc-name{
+  font-size:.7rem;color:rgba(255,255,255,.6);
+  margin-top:.3rem;line-height:1.4;
+}
+.tbl-wrap{
+  overflow-x:auto;border-radius:16px;
+  border:1px solid rgba(255,255,255,.12);
+  margin-top:2rem;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+}
+table{width:100%;border-collapse:collapse;min-width:300px}
+thead{background:rgba(201,151,60,.15)}
+th{
+  padding:.8rem 1rem;text-align:left;
+  font-size:.7rem;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;
+  color:var(--gold);
+}
+td{
+  padding:.8rem 1rem;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  font-size:.8rem;color:rgba(255,255,255,.75);
+}
+tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:rgba(255,255,255,.05);color:#fff}
+.hl{color:var(--gold)!important;font-weight:700}
+.stars{color:var(--gold);letter-spacing:1px}
+
+/* Contact */
+.con-sec{
+  background:linear-gradient(135deg,#8b2d5c,#5c1a3a);
+  color:#fff;text-align:center;
+}
+.con-inner{max-width:600px;margin:0 auto}
+.con-inner .eyebrow{color:var(--gold);justify-content:center}
+.con-inner .eyebrow::before{background:var(--gold)}
+.con-inner .sec-title{color:#fff}
+.con-inner .sec-desc{color:rgba(255,255,255,.85);margin:1rem auto}
+.con-cards{
+  display:flex;flex-direction:column;gap:.9rem;
+  margin:2rem 0;
+}
+.ccard{
+  background:rgba(255,255,255,.11);
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:13px;padding:.9rem 1.2rem;
+  font-size:.85rem;font-weight:600;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:all .3s var(--ease);
+}
+.ccard:hover{
+  background:rgba(255,255,255,.18);
+  transform:translateY(-3px);
+}
+.btn-w{
+  background:#fff;color:var(--berry);
+  box-shadow:0 8px 24px rgba(0,0,0,.15);
+}
+.btn-w:hover{
+  background:var(--cream);
+  transform:translateY(-4px);
+  box-shadow:0 12px 32px rgba(0,0,0,.2);
+}
+
+footer{
+  background:#1a0e26;color:rgba(255,255,255,.5);
+  text-align:center;padding:1.8rem 1rem;font-size:.8rem;
+}
+footer a{color:var(--rose);text-decoration:none}
+footer a:hover{text-decoration:underline}
+
+/* Scroll Button */
+#stb{
+  position:fixed;bottom:1.5rem;right:1.5rem;
+  width:46px;height:46px;border-radius:50%;
+  background:linear-gradient(135deg,var(--berry),var(--plum));
+  color:#fff;border:none;font-size:1.2rem;cursor:pointer;
+  box-shadow:0 6px 20px rgba(107,26,68,.4);
+  opacity:0;pointer-events:none;
+  transform:translateY(10px) scale(.9);
+  transition:all .3s var(--ease);z-index:900;
+  display:flex;align-items:center;justify-content:center;
+}
+#stb.on{opacity:1;pointer-events:all;transform:translateY(0) scale(1)}
+#stb:hover{
+  transform:translateY(-4px) scale(1.05);
+  box-shadow:0 10px 28px rgba(107,26,68,.5);
+}
+
+/* Reveal */
+.rv{
+  opacity:0;transform:translateY(24px);
+  transition:opacity .7s var(--ease),transform .7s var(--ease);
+}
+.rv.in{opacity:1;transform:translateY(0)}
+
+/* Responsive */
+@media(min-width:640px){
+  .hero-cards{grid-template-columns:repeat(3,1fr)}
+  .stats{grid-template-columns:repeat(4,1fr)}
+  .prod-grid{grid-template-columns:repeat(3,1fr)}
+  .nh-grid{grid-template-columns:repeat(4,1fr)}
+  .con-cards{flex-direction:row;justify-content:center}
+}
+@media(min-width:768px){
+  .nav{padding:1rem 2rem}
+  .nav-inner{height:60px}
+  .burger{display:none}
+  .nav-mobile{display:none}
+  .nav-menu{display:flex;align-items:center;gap:.4rem}
+  .nav-menu a{
+    padding:.5rem 1rem;font-size:.88rem;font-weight:600;
+    color:var(--muted);border-radius:11px;
+    transition:all .25s var(--ease);text-decoration:none;
+  }
+  .nav-menu a:hover,.nav-menu a.active{
+    color:var(--berry);background:rgba(107,26,68,.08);
+  }
+  .nav-cta{
+    background:var(--berry)!important;color:#fff!important;
+    padding:.55rem 1.4rem!important;
+    box-shadow:0 4px 16px rgba(107,26,68,.3)!important;
+  }
+  .nav-cta:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 24px rgba(107,26,68,.4)!important;
+  }
+  .ben-grid{grid-template-columns:repeat(2,1fr)}
+  .bcard.feat{grid-column:span 2}
+  .prod-grid{grid-template-columns:repeat(4,1fr)}
+  .diabetes-grid{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:3rem;align-items:start;
+  }
+}
+@media(min-width:1024px){
+  .ben-grid{grid-template-columns:repeat(3,1fr)}
+  .bcard.feat{grid-column:span 3}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    transition-duration:.01ms!important;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+<div class="shapes">
+  <div class="shape"></div>
+  <div class="shape"></div>
+  <div class="shape"></div>
+</div>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">🫐</div>
+      <span class="logo-text">Aronia<em>Natur</em></span>
+    </a>
+    <div class="nav-menu" style="display:none">
+      <a href="#despre">Despre</a>
+      <a href="#diabet">Diabet</a>
+      <a href="#beneficii">Beneficii</a>
+      <a href="#produse">Produse</a>
+      <a href="#nutritie">Nutriție</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Meniu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="navMobile">
+  <a href="#despre">Despre</a>
+  <a href="#diabet">Diabet & Glicemie</a>
+  <a href="#beneficii">Beneficii</a>
+  <a href="#produse">Produse</a>
+  <a href="#nutritie">Nutriție</a>
+  <a href="#contact" class="nav-cta">Contact</a>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">🩺 Control Natural</div>
+    <h1>Controlează diabetul<br>în mod <span class="hi">natural</span></h1>
+    <p class="hero-sub">Aronia — soluția naturală pentru reglarea glicemiei. Cu cel mai ridicat conținut de antioxidanți din lume, fără efecte secundare.</p>
+    <div class="hero-btns">
+      <a href="#diabet" class="btn btn-p">🩸 Pentru Diabet</a>
+      <a href="#produse" class="btn btn-g">🛒 Produse</a>
+    </div>
+    <div class="hero-cards">
+      <div class="hcard">
+        <div class="hcard-icon">📉</div>
+        <h3>Reduce Glicemia</h3>
+        <p>Reglare naturală</p>
+      </div>
+      <div class="hcard">
+        <div class="hcard-icon">🛡️</div>
+        <h3>100% Natural</h3>
+        <p>Fără chimicale</p>
+      </div>
+      <div class="hcard">
+        <div class="hcard-icon">⚡</div>
+        <h3>Acțiune Rapidă</h3>
+        <p>Efecte în 2-4 săpt</p>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="orb">
+        <div class="berry">🫐</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="diabetes" id="diabet">
+  <div class="diabetes-wrap">
+    <div class="diabetes-grid">
+      <div class="rv">
+        <div class="eyebrow">🩺 Diabet & Glicemie</div>
+        <h2 class="sec-title">Aronia — <em>Aliatul</em><br>împotriva Diabetului</h2>
+        <p class="sec-desc">Studiile clinice confirmă eficiența</p>
+        <p>Aronia conține <strong>antocianine puternice</strong> care blochează absorbția rapidă a zahărului, prevenind vârfurile glicemice după mese. Polifenolii îmbunătățesc sensibilitatea la insulină cu până la <strong>37%</strong>.</p>
+        <p>Pentru persoanele cu <strong>diabet tip 2</strong>, consumul regulat poate reduce glicemia cu <strong>18-25%</strong> în doar 8 săptămâni, fără interacțiuni cu medicamentele.</p>
+      </div>
+      <div class="stats rv">
+        <div class="stat">
+          <div class="stat-num">−25%</div>
+          <div class="stat-label">Reducere glicemie</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">+37%</div>
+          <div class="stat-label">Sensibilitate insulină</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">1480mg</div>
+          <div class="stat-label">Antocianine/100g</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">0</div>
+          <div class="stat-label">Efecte secundare</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="beneficii">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">💪 Sănătate</div>
+      <h2 class="sec-title">Beneficiile<br><em>Aroniei</em></h2>
+      <p class="sec-desc">De la control glicemic la sănătate completă</p>
+    </div>
+    <div class="ben-grid">
+      <div class="bcard feat rv">
+        <div class="bicon">🩸</div>
+        <div><h3>Control Glicemic</h3><p>Reduce glicemia cu 18-25%, îmbunătățește sensibilitatea la insulină, previne complicațiile diabetului.</p></div>
+      </div>
+      <div class="bcard rv"><div class="bicon">🛡️</div><h3>Imunitate</h3><p>Fortifică sistemul imunitar natural.</p></div>
+      <div class="bcard rv"><div class="bicon">❤️</div><h3>Inimă</h3><p>Reduce tensiunea și colesterolul.</p></div>
+      <div class="bcard rv"><div class="bicon">🧠</div><h3>Claritate</h3><p>Protejează neuronii, memoria.</p></div>
+      <div class="bcard rv"><div class="bicon">✨</div><h3>Piele</h3><p>Antioxidanți anti-îmbătrânire.</p></div>
+      <div class="bcard rv"><div class="bicon">👁️</div><h3>Vedere</h3><p>Protejează retina și macula.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="produse">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">🛍️ Produse</div>
+      <h2 class="sec-title">Gama<br><em>Aronia</em></h2>
+      <p class="sec-desc">100% naturale pentru diabet</p>
+    </div>
+    <div class="prod-grid">
+      <div class="pcard rv">
+        <svg class="p-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#9b2d5c"/><stop offset="100%" stop-color="#4a0f2a"/></linearGradient></defs>
+          <path d="M30 35Q25 40 23 50L22 80Q22 90 35 90L65 90Q78 90 78 80L77 50Q75 40 70 35Z" fill="url(#g1)"/>
+          <rect x="32" y="10" width="36" height="13" rx="6" fill="#2d6a1f"/>
+          <text x="50" y="60" font-size="8" fill="white" text-anchor="middle" font-weight="bold">SUC</text>
+        </svg>
+        <h3>Suc Aronia</h3>
+        <p>Presat la rece</p>
+        <span class="ptag">500 ml</span>
+      </div>
+      <div class="pcard rv">
+        <svg class="p-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 50Q13 55 13 65L13 82Q13 92 25 92L75 92Q87 92 87 82L87 65Q87 55 85 50Z" fill="#8b2d5a"/>
+          <ellipse cx="50" cy="30" rx="24" ry="7" fill="#d4aa60"/>
+          <text x="50" y="68" font-size="8" fill="white" text-anchor="middle" font-weight="bold">SIROP</text>
+        </svg>
+        <h3>Sirop</h3>
+        <p>Natural îndulcit</p>
+        <span class="ptag">350 ml</span>
+      </div>
+      <div class="pcard rv">
+        <svg class="p-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 48Q8 53 8 63L8 80Q8 92 22 92L78 92Q92 92 92 80L92 63Q92 53 90 48Z" fill="#7a2250"/>
+          <text x="50" y="65" font-size="7" fill="white" text-anchor="middle" font-weight="bold">DULCEAȚĂ</text>
+        </svg>
+        <h3>Dulceață</h3>
+        <p>Fără zahăr</p>
+        <span class="ptag">300 g</span>
+      </div>
+      <div class="pcard rv">
+        <svg class="p-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 30Q18 35 18 45L16 85Q16 95 30 95L70 95Q84 95 84 85L82 45Q82 35 80 30Z" fill="#9b3068"/>
+          <text x="50" y="60" font-size="8" fill="white" text-anchor="middle" font-weight="bold">PUDRĂ</text>
+        </svg>
+        <h3>Pudră</h3>
+        <p>Liofilizată</p>
+        <span class="ptag">200 g</span>
+      </div>
+      <div class="pcard rv">
+        <svg class="p-svg" viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+          <path d="M35 50Q30 55 28 65L26 95Q26 105 40 105L60 105Q74 105 74 95L72 65Q70 55 65 50Z" fill="#1e0a14"/>
+          <text x="50" y="78" font-size="6" fill="white" text-anchor="middle" font-weight="bold">VIN</text>
+        </svg>
+        <h3>Vin</h3>
+        <p>Fermentat</p>
+        <span class="ptag">750 ml</span>
+      </div>
+      <div class="pcard rv">
+        <svg class="p-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect x="25" y="40" width="50" height="52" rx="11" fill="#e8ecf8"/>
+          <circle cx="50" cy="65" r="8" fill="#6b1a44"/>
+          <text x="50" y="88" font-size="5" fill="#2a1a3a" text-anchor="middle" font-weight="bold">CAPSULE</text>
+        </svg>
+        <h3>Capsule</h3>
+        <p>Extract 500mg</p>
+        <span class="ptag">60 caps</span>
+      </div>
+      <div class="pcard rv">
+        <svg class="p-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect x="12" y="25" width="76" height="70" rx="6" fill="#5c1234"/>
+          <rect x="16" y="32" width="68" height="58" rx="5" fill="#fdf6f0"/>
+          <text x="50" y="68" font-size="7" fill="#3b1050" text-anchor="middle" font-weight="bold">CEAI</text>
+        </svg>
+        <h3>Ceai</h3>
+        <p>Fructe uscate</p>
+        <span class="ptag">150 g</span>
+      </div>
+      <div class="pcard rv">
+        <svg class="p-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M32 45Q27 50 27 60L27 85Q27 95 38 95L62 95Q73 95 73 85L73 60Q73 50 68 45Z" fill="#e8d8b8"/>
+          <text x="50" y="72" font-size="6" fill="#3b2010" text-anchor="middle" font-weight="bold">ULEI</text>
+        </svg>
+        <h3>Ulei</h3>
+        <p>Semințe</p>
+        <span class="ptag">100 ml</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="nut-sec" id="nutritie">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">📊 Nutriție</div>
+      <h2 class="sec-title">Profil<br><em>Nutrițional</em></h2>
+      <p class="sec-desc">Per 100g aronia</p>
+    </div>
+    <div class="nh-grid">
+      <div class="nhc rv"><div class="nhc-val">1480mg</div><div class="nhc-name">Antocianine</div></div>
+      <div class="nhc rv"><div class="nhc-val">2560mg</div><div class="nhc-name">Polifenoli</div></div>
+      <div class="nhc rv"><div class="nhc-val">5.3g</div><div class="nhc-name">Fibre</div></div>
+      <div class="nhc rv"><div class="nhc-val">47</div><div class="nhc-name">Calorii</div></div>
+    </div>
+    <div class="tbl-wrap rv">
+      <table>
+        <thead><tr><th>Nutrient</th><th>Valoare</th><th>%DZR</th></tr></thead>
+        <tbody>
+          <tr><td>Carbohidrați</td><td>9.6 g</td><td>3%</td></tr>
+          <tr><td>Fibre</td><td class="hl">5.3 g</td><td class="hl">21%</td></tr>
+          <tr><td>Vitamina C</td><td class="hl">21 mg</td><td class="hl">35%</td></tr>
+          <tr><td>Vitamina K</td><td class="hl">29 µg</td><td class="hl">37%</td></tr>
+          <tr><td>Mangan</td><td class="hl">0.6 mg</td><td class="hl">30%</td></tr>
+          <tr><td>Antocianine</td><td class="hl">1480 mg</td><td class="stars">★★★★★</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="con-sec" id="contact">
+  <div class="wrap">
+    <div class="con-inner rv">
+      <div class="eyebrow">📬 Contact</div>
+      <h2 class="sec-title">Controlează-ți<br>diabetul <em>natural</em></h2>
+      <p class="sec-desc">Contactează-ne pentru comenzi</p>
+      <div class="con-cards">
+        <div class="ccard">📧 frantescu1993@gmail.com</div>
+        <div class="ccard">📞 +40 735 477 765</div>
+        <div class="ccard">📍 Fardea, Timiș</div>
+      </div>
+      <a href="mailto:frantescu1993@gmail.com" class="btn btn-w">✉️ Comandă</a>
+    </div>
+  </div>
+</section>
+
+<footer><p>© 2026 <a href="#">Aronia Natur</a> — Control natural al glicemiei</p></footer>
+<button id="stb" aria-label="Sus">↑</button>
+
+<script>
+'use strict';
+const burger=document.getElementById('burger'),
+      navMobile=document.getElementById('navMobile'),
+      overlay=document.getElementById('overlay');
+
+function toggle(){
+  const o=burger.classList.toggle('open');
+  navMobile.classList.toggle('open',o);
+  overlay.classList.toggle('open',o);
+  document.body.style.overflow=o?'hidden':'';
+}
+burger.addEventListener('click',toggle);
+overlay.addEventListener('click',toggle);
+[...navMobile.querySelectorAll('a')].forEach(a=>a.addEventListener('click',()=>{
+  burger.classList.remove('open');
+  navMobile.classList.remove('open');
+  overlay.classList.remove('open');
+  document.body.style.overflow='';
+}));
+
+const nav=document.getElementById('nav'),stb=document.getElementById('stb');
+let tick=false;
+function scroll(){
+  if(tick)return;
+  tick=true;
+  requestAnimationFrame(()=>{
+    const y=scrollY;
+    nav.classList.toggle('on',y>50);
+    stb.classList.toggle('on',y>400);
+    tick=false;
+  });
+}
+addEventListener('scroll',scroll,{passive:true});
+stb.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+
+const obs=new IntersectionObserver(e=>{
+  e.forEach(i=>{if(i.isIntersecting){i.target.classList.add('in');obs.unobserve(i.target)}});
+},{threshold:.05,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
